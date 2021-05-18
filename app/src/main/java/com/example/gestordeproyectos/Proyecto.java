@@ -6,40 +6,31 @@ import java.io.Serializable;
 public class Proyecto implements Serializable {
 
     String nombre, descripcion, fechaDeInicio;
-    boolean carpeta;
+    boolean completado;
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
     public String getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 
     public String getFechaDeInicio() {
         return fechaDeInicio;
     }
 
-    public void setFechaDeInicio(String fechaDeInicio) {
-        this.fechaDeInicio = fechaDeInicio;
-    }
 
-    public Proyecto(String nombre, String descripcion, String fechaDeInicio, boolean carpeta) {
+    public Proyecto(String nombre, String descripcion, String fechaDeInicio) {
         this.fechaDeInicio = null;
         this.nombre = null;
         this.descripcion = null;
+        completado = false;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaDeInicio = fechaDeInicio;
-        this.carpeta = carpeta;
     }
 
     @Override
@@ -47,13 +38,14 @@ public class Proyecto implements Serializable {
         return nombre;
     }
 
-    public void actualizar(String descripcion, String nombre, String fecha) {
+    public void actualizar(String descripcion, String nombre, String fecha, boolean completo) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaDeInicio = fecha;
+        this.completado = completo;
     }
 
-    public boolean getCarpeta() {
-        return carpeta;
+    public boolean getCompletado() {
+        return completado;
     }
 }

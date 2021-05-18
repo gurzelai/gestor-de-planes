@@ -1,16 +1,15 @@
 package com.example.gestordeproyectos;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import androidx.core.content.ContextCompat;
+
 import java.util.List;
 
 public class AdaptadorProyecto extends BaseAdapter{
@@ -38,6 +37,7 @@ public class AdaptadorProyecto extends BaseAdapter{
         return id;
     }
 
+    @SuppressLint({"ViewHolder", "InflateParams"})
     @Override
 
     public View getView(int position, View convertView, ViewGroup viewGroup) {
@@ -50,25 +50,17 @@ public class AdaptadorProyecto extends BaseAdapter{
         v= layoutInflater.inflate(R.layout.activity_adaptador_proyecto, null);
         // Valor actual según la posición
 
-        String currentName  = names.get(position).getNombre();
+        String currentName = names.get(position).getNombre();
         String date = names.get(position).getFechaDeInicio();
-
-       /*if(compararFechas(date, new SimpleDateFormat("dd/MM/yyyy").format(new Date()))){
-            v.setBackgroundColor(Color.RED);
-        }*/
-
 
         // Referenciamos el elemento a modificar y lo rellenamos
         TextView nombreVista = (TextView) v.findViewById(R.id.nombreVista);
         nombreVista.setText(currentName.toString());
         TextView fechaVista = (TextView) v.findViewById(R.id.fechaVista);
         fechaVista.setText(date);
-        ImageView imageView = v.findViewById(R.id.imagenVista);
-        if(names.get(position).getCarpeta()){
-            imageView.setImageResource(R.drawable.carpeta);
-        }
-        else{
-            imageView.setImageResource(R.drawable.proyecto);
+
+        if (names.get(position).getCompletado()) {
+            v.setBackgroundColor(ContextCompat.getColor(context, R.color.completado));
         }
         //Devolvemos la vista inflada
         return v;

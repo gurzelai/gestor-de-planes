@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginRight="15sp"
+    android:layout_marginEnd="15sp"
     tools:context=".Anadir">
 
     <EditText
@@ -14,20 +14,20 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:ems="10"
-        android:hint="Nombre"
-        android:inputType="textPersonName|textCapSentences|textCapWords"
+        android:hint="Título"
+        android:inputType="textNoSuggestions|textPersonName|textCapSentences|textCapWords"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/descripcion"
-        android:layout_width="378dp"
-        android:layout_height="51dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Descripcion"
-        android:inputType="textPersonName|textCapSentences|textCapWords"
+        android:inputType="textMultiLine|textNoSuggestions|textPersonName|textCapSentences"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreVista" />
 
@@ -37,11 +37,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
-        android:clickable="true"
+        android:clickable="false"
         android:ems="10"
         android:focusable="false"
         android:focusableInTouchMode="true"
-        android:hint="Fecha de inicio"
+        android:hint="Fecha aproximada"
         android:inputType="date"
         android:maxLines="1"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,5 +66,15 @@
         android:text="Cancelar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/completo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="Completo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fechaDeInicio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

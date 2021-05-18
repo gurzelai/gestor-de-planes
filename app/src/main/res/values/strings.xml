@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Calendario de planes</string>
+    <string name="app_name">Planetone</string>
+    <string name="app_name_main">Calendario de planes</string>
+    <string name="todo">TODO</string>
 </resources>

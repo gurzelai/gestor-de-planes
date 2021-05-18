@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GestorDeProyectos">
-        <activity android:name=".Editar"></activity>
         <activity android:name=".Anadir" />
         <activity android:name=".MainActivity">
             <intent-filter>
