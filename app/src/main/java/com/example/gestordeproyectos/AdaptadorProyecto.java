@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -62,6 +63,13 @@ public class AdaptadorProyecto extends BaseAdapter{
         nombreVista.setText(currentName.toString());
         TextView fechaVista = (TextView) v.findViewById(R.id.fechaVista);
         fechaVista.setText(date);
+        ImageView imageView = v.findViewById(R.id.imagenVista);
+        if(names.get(position).getCarpeta()){
+            imageView.setImageResource(R.drawable.carpeta);
+        }
+        else{
+            imageView.setImageResource(R.drawable.proyecto);
+        }
         //Devolvemos la vista inflada
         return v;
     }

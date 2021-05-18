@@ -1,7 +1,5 @@
 package com.example.gestordeproyectos;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -10,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class Anadir extends AppCompatActivity {
@@ -32,7 +32,7 @@ public class Anadir extends AppCompatActivity {
         aceptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Proyecto p = new Proyecto(nombre.getText().toString(), descripcion.getText().toString(), fechaDeInicio.getText().toString());
+                Proyecto p = new Proyecto(nombre.getText().toString(), descripcion.getText().toString(), fechaDeInicio.getText().toString(), getIntent().getBooleanExtra("carpeta", false));
                 resultIntent = new Intent(String.valueOf(getApplicationContext()));
                 resultIntent.putExtra(EXTRA_AÑADIR, p);
                 setResult(Activity.RESULT_OK, resultIntent);

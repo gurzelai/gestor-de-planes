@@ -6,6 +6,7 @@ import java.io.Serializable;
 public class Proyecto implements Serializable {
 
     String nombre, descripcion, fechaDeInicio;
+    boolean carpeta;
 
     public String getNombre() {
         return nombre;
@@ -31,13 +32,14 @@ public class Proyecto implements Serializable {
         this.fechaDeInicio = fechaDeInicio;
     }
 
-    public Proyecto(String nombre, String descripcion, String fechaDeInicio){
+    public Proyecto(String nombre, String descripcion, String fechaDeInicio, boolean carpeta) {
         this.fechaDeInicio = null;
         this.nombre = null;
         this.descripcion = null;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaDeInicio = fechaDeInicio;
+        this.carpeta = carpeta;
     }
 
     @Override
@@ -49,5 +51,9 @@ public class Proyecto implements Serializable {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaDeInicio = fecha;
+    }
+
+    public boolean getCarpeta() {
+        return carpeta;
     }
 }

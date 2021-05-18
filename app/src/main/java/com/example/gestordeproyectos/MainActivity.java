@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     final static String EXTRA_PROYECTO = "proyecto tomado mediante la posicion de lista";
     static int proyectoEditando;
 
-    FloatingActionButton btnproyecto;
+    FloatingActionButton btnproyecto, btncarpeta;
     ListView listView;
     AdaptadorProyecto adaptador;
     TextView fechaActual;
@@ -49,10 +49,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         configuracionListas();
         btnproyecto = (FloatingActionButton) findViewById(R.id.addproyect);
+        btncarpeta = (FloatingActionButton) findViewById(R.id.addcarpeta);
         btnproyecto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Anadir.class);
+                intent.putExtra("carpeta", false);
+                startActivityForResult(intent, CODE_AÑADIR);
+            }
+        });
+        btncarpeta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Anadir.class);
+                intent.putExtra("carpeta", true);
                 startActivityForResult(intent, CODE_AÑADIR);
             }
         });
